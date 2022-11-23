@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.loginMainDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    width: 40%;
+}
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 25px;
+    height: 70%;
+    width: 75%;
+    border: 2px solid #101010;
+}
+.loginInputDiv {
+    display: flex;
+    justify-content: space-between;
+}
+.loginInputSubmitDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+.loginInputButton {
+    padding: 3px 5px;
+}
