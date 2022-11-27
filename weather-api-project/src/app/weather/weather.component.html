@@ -1,44 +1,36 @@
 <div>
-    <form
-        [formGroup]="weatherSearchForm"
-        (ngSubmit)="sendToWeatherApi(weatherSearchForm.value)" >
-        <div class="form-group">
-            <input
-            class="form-control"
-            type="text"
-            id="location"
-            aria-describedby="weatherLocation"
-            placeholder="Please input a Location"
-            formControlName="location" />
+    <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToWeatherApi(weatherSearchForm.value)" >
+        <div>
+            <input type="text" id="location" placeholder="Input a Location" formControlName="location" />
         </div>
-        <div class="text-center">
+        <div>
             <button type="submit" class="btn btn-success btn-md">
-            Search for the weather
+              <span>Search</span>
             </button>
         </div>
     </form>
 </div>
-<div *ngFor="let weatherCall of weatherCalls" class="col-md-6">
-    <h3 class="text-center my-4">Weather Details:</h3>
-    <p class="text-center">
+<div *ngFor="let weatherCall of weatherCalls">
+    <h3>Weather Details:</h3>
+    <p>
       Current weather conditions: {{ weatherCall.current.condition.text
       }}.
     </p>
-    <p class="text-center">
+    <p>
       Temperature in Degrees Celsius: {{ weatherCall.current.temp_c }}
     </p>
-    <p class="text-center">
+    <p>
       Temperature in Degrees Farenheit: {{ weatherCall.current.temp_f }}
     </p>
-    <p class="text-center">
+    <p>
       Feels like in Degrees Celsius: {{ weatherCall.current.feelslike_c
       }}
     </p>
-    <p class="text-center">
+    <p>
       Feels like in Degrees Farenheit: {{
       weatherCall.current.feelslike_f }}
     </p>
-    <p class="text-center">
+    <p>
       Location Searched: {{ weatherCall.location.name }}, {{
       this.weatherData?.location.country }}.
     </p>
