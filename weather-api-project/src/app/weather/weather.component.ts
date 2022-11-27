@@ -13,6 +13,8 @@ export class WeatherComponent implements OnInit {
 
   public weatherData: any;
 
+  public weatherCalls: Array<any> = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private weatherApiService: WeatherApiService   
@@ -30,6 +32,8 @@ export class WeatherComponent implements OnInit {
       .subscribe(data => {
         this.weatherData = data
         console.log(this.weatherData);
+        this.weatherCalls?.push(data);
+        console.log(this.weatherCalls);
     });
   }
 }

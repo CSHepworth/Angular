@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { WeatherComponent } from './weather/weather.component';
-import { WeatherApiService } from './weather-api.service';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    WeatherComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
+    StoreModule,
+    EffectsModule
   ],
-  providers: [WeatherApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

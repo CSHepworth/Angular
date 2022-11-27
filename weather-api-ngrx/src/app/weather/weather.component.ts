@@ -14,9 +14,13 @@ export class WeatherComponent {
   @Output()
   locationDeleted = new EventEmitter<string>();
 
+  public weatherCall: any;
+
   constructor(public weatherService: WeatherService) { }
 
   getWeather(location: string) {
     return this.weatherCalls.get(location);
   }
+
+
 }

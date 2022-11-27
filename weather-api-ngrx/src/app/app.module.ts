@@ -5,18 +5,22 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 //Components
 import { AppComponent } from './app.component';
 import { SearchWeatherComponent } from './search-weather/search-weather.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { WeatherComponent } from './weather/weather.component';
 
 //Services
 import { LocationService } from './location.service';
 import { WeatherService } from './weather.service';
 
+//Misc
 import { reducers, metaReducers } from './reducers';
-import { WeatherComponent } from './weather/weather.component';
+import { WeatherEffects } from './effects/weather.effects';
+
 
 
 @NgModule({
@@ -32,6 +36,7 @@ import { WeatherComponent } from './weather/weather.component';
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot( reducers, { metaReducers } ),
+    EffectsModule.forRoot([WeatherEffects]),
   ],
   providers: [LocationService, WeatherService],
   bootstrap: [AppComponent]

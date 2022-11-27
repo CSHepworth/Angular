@@ -1,9 +1,0 @@
-<div>
-  Location: <input type="text" #location/>
-  <button (click)="addNewWeather(location.value)">Add Location</button><br>
-
-  <b>Locations</b>
-  <ol>
-    <li *ngFor="let location of weatherList">{{location}}</li>
-  </ol>
-</div>

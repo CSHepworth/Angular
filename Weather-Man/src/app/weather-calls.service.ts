@@ -5,27 +5,26 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherService {
+export class WeatherCallsService {
 
-  private weatherCalls = [];
+  private weathercalls = [];
 
   constructor(private http: HttpClient) { }
 
-  loadWeather(location: string): Observable<any> {
+  loadWeatherCall(location: string): Observable<any> {
     return this.http.get(
       `http://api.weatherapi.com/v1/current.json?key=44cec275959c4e4aa2a02110222211&q=${location}`
     );
   }
 
   removeWeatherCall(location: string) {
-    for (let i in this.weatherCalls) {
-      if (this.weatherCalls[i].local == location)
-        this.weatherCalls.splice(+i, 1);
+    for (let i in this.weathercalls) {
+      if (this.weathercalls[i].loc == location)
+        this.weathercalls.splice(+i, 1);
     }
   }
 
   getWeatherCalls(): any[] {
-    return this.weatherCalls;
+    return this.weathercalls;
   }
-
 }
