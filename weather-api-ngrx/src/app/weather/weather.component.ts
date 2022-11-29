@@ -1,3 +1,4 @@
+import { MapType } from '@angular/compiler';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WeatherService } from '../weather.service';
 
@@ -13,6 +14,8 @@ export class WeatherComponent {
   weatherCalls: Map<string, any>;
   @Output()
   locationDeleted = new EventEmitter<string>();
+  @Output()
+  orderReversed = new EventEmitter<any>();
 
   public weatherCall: any;
 
@@ -20,6 +23,12 @@ export class WeatherComponent {
 
   getWeather(location: string) {
     return this.weatherCalls.get(location);
+  }
+
+  reverseOrder(weatherCall: any) {
+    const reversedWeatherCalls = new Map(Array.from(this.weatherCalls).reverse());
+    this.weatherCalls = reversedWeatherCalls;
+    console.log(this.weatherCalls);
   }
 
 

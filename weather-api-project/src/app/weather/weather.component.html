@@ -11,28 +11,6 @@
     </form>
 </div>
 <div *ngFor="let weatherCall of weatherCalls">
-    <h3>Weather Details:</h3>
-    <p>
-      Current weather conditions: {{ weatherCall.current.condition.text
-      }}.
-    </p>
-    <p>
-      Temperature in Degrees Celsius: {{ weatherCall.current.temp_c }}
-    </p>
-    <p>
-      Temperature in Degrees Farenheit: {{ weatherCall.current.temp_f }}
-    </p>
-    <p>
-      Feels like in Degrees Celsius: {{ weatherCall.current.feelslike_c
-      }}
-    </p>
-    <p>
-      Feels like in Degrees Farenheit: {{
-      weatherCall.current.feelslike_f }}
-    </p>
-    <p>
-      Location Searched: {{ weatherCall.location.name }}, {{
-      this.weatherData?.location.country }}.
-    </p>
-  </div>
+    <p>Location: </p>
+</div>
 

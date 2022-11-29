@@ -1,0 +1,57 @@
+.weatherCallsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 60%;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+.weatherCardDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: #88cfff;
+}
+
+.weatherCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 0;
+    background-color: #27a1f2;
+    width: 100%;
+    font-size: 30px;
+}
+
+.currentConditionIcon {
+    margin-left: 30px;
+    background-color: #eef1f4;
+    border-radius: 50%;
+}
+
+.weatherCardLocation {
+    margin-right: 30px;
+}
+
+.weatherCardTextDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    width: 80%;
+    font-size: 25px;
+}
+
+.weatherCardOptionsDiv {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    width: 40%;
+}

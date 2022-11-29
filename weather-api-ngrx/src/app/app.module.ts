@@ -20,6 +20,7 @@ import { WeatherService } from './weather.service';
 //Misc
 import { reducers, metaReducers } from './reducers';
 import { WeatherEffects } from './effects/weather.effects';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -29,14 +30,16 @@ import { WeatherEffects } from './effects/weather.effects';
     SearchWeatherComponent,
     DashboardComponent,
     WeatherComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    EffectsModule.forRoot([ WeatherEffects ]),
     StoreModule.forRoot( reducers, { metaReducers } ),
-    EffectsModule.forRoot([WeatherEffects]),
+    
   ],
   providers: [LocationService, WeatherService],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
-<div>
-    <input type="text" #location placeholder="Enter a location or zipcode">
-    <button type="button" (click)="locationSearch.emit(location.value)" >
+<div class="searchBarDiv">
+    <input class="searchBarInput" type="text" #location placeholder="Enter a location or zipcode">
+    <button class="searchBarButton" type="button" (click)="locationSearch.emit(location.value)" >
         <span>Search</span>
     </button>
 </div>

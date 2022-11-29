@@ -1,0 +1,20 @@
+$Main-Foreground-Color: #27A1F2;
+$Logo-Font-Color: #fff;
+
+.outerNavBar {
+    background-color: $Main-Foreground-Color;
+    width: 100%;
+    height: 60px;
+}
+.innerNavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-color: $Main-Foreground-Color;
+}
+.navBarLogo {
+    color: $Logo-Font-Color;
+}

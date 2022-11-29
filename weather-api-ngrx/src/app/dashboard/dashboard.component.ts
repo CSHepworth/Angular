@@ -44,5 +44,10 @@ export class DashboardComponent {
       });
   }
 
+  reverseCallOrder() {
+    const reversed = new Map(Array.from(this.weatherCalls).reverse());
+    this.weatherCalls = reversed
+  }
+
 
 }

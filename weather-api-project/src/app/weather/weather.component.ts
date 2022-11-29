@@ -13,7 +13,7 @@ export class WeatherComponent implements OnInit {
 
   public weatherData: any;
 
-  public weatherCalls: Array<any> = [];
+  public weatherCalls!: Map<string, any>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,8 +32,11 @@ export class WeatherComponent implements OnInit {
       .subscribe(data => {
         this.weatherData = data
         console.log(this.weatherData);
-        this.weatherCalls?.push(data);
-        console.log(this.weatherCalls);
-    });
+        this.weatherCalls?.set(formValues.location, this.weatherData);
+      });
+  }
+
+  getWeatherCalls(locale: string) {
+    return this.weatherCalls.get(locale);
   }
 }
