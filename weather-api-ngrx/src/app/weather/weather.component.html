@@ -1,34 +1,79 @@
-<div>
-    <button (click)="reverseOrder(weatherCalls)">
-        <span>Reverse</span>
-    </button>
-</div>
-
-<div class="weatherCallsDiv">
-    <div class="weatherCardDiv" *ngFor="let location of locations">
-        <div class="weatherCardHeader">
-            <img class="currentConditionIcon" src="{{ getWeather(location).current.condition.icon }}" alt="icon">
-            <h3 class="weatherCardLocation">
-                {{ getWeather(location)?.location.name }}, {{ getWeather(location)?.location.region }}
-            </h3>
+<div class="weatherMainDiv">
+    <div >
+        <div class="filterHead">
+            <h2>Filters</h2>
+            <button (click)="toggleFilters()">
+                <span *ngIf="!showFilters">Show</span>
+                <span *ngIf="showFilters">Hide</span>
+            </button>
         </div>
-        <div class="weatherCardTextDiv">
-            <p>
-                Temperature: {{ getWeather(location)?.current.temp_f }}°F
-            </p>
-            <p>
-                Current Conditions: {{ getWeather(location)?.current.condition.text }} 
-            </p>
-            <p>
-                Wind: {{ getWeather(location)?.current.wind_dir }} {{ getWeather(location)?.current.wind_mph }}mph
-            </p>
-            <p>
-                Humidity: {{ getWeather(location)?.current.humidity }}
-            </p>
+        <div class="filterDiv" *ngIf="showFilters">
+            <button (click)="toggleTemp_F()">
+                <span *ngIf="temp_f" style="color: #27AE60;">Temperature(°F): On</span>
+                <span *ngIf="!temp_f" style="color: #EB5757;">Temperature(°F): Off</span>
+            </button>
+            <button (click)="toggleTemp_C()">
+                <span *ngIf="temp_c" style="color: #27AE60;">Temperature(°C): On</span>
+                <span *ngIf="!temp_c" style="color: #EB5757;">Temperature(°C): Off</span>
+            </button>
+            <button (click)="toggleCurrentConditions()">
+                <span *ngIf="currentConditions" style="color: #27AE60;">Current Conditions: On</span>
+                <span *ngIf="!currentConditions" style="color: #EB5757;">Current Conditions: Off</span>
+            </button>
+            <button (click)="toggleWind()">
+                <span *ngIf="wind" style="color: #27AE60;">Wind: On</span>
+                <span *ngIf="!wind" style="color: #EB5757;">Wind: Off</span>
+            </button>
+            <button (click)="toggleHumidity()">
+                <span *ngIf="humidity" style="color: #27AE60;">Humidity: On</span>
+                <span *ngIf="!humidity" style="color: #EB5757;">Humidity: Off</span>
+            </button>
+            <button (click)="togglePrecip()">
+                <span *ngIf="precip" style="color: #27AE60;">Precipitation: On</span>
+                <span *ngIf="!precip" style="color: #EB5757;">Precipitation: Off</span>
+            </button>
+            <button (click)="toggleFeelsLike()">
+                <span *ngIf="feelsLike" style="color: #27AE60;">Feels Like: On</span>
+                <span *ngIf="!feelsLike" style="color: #EB5757;">Feels Like: Off</span>
+            </button>
         </div>
-        <div class="weatherCardOptionsDiv">
-            <a (click)="locationDeleted.emit(location)">Details</a>
-            <a (click)="locationDeleted.emit(location)">Remove</a>
+    </div>
+    
+    <div class="weatherCallsDiv" id="weatherCallsDiv">
+        <div class="weatherCardDiv" *ngFor="let location of locations">
+            <div class="weatherCardHeader">
+                <img class="currentConditionIcon" src="{{ getWeather(location)?.current.condition.icon }}" alt="icon">
+                <h3 class="weatherCardLocation">
+                    {{ getWeather(location)?.location.name }}, {{ getWeather(location)?.location.region }}
+                </h3>
+            </div>
+            <div class="weatherCardTextDiv">
+                <p *ngIf="temp_f">
+                    Temperature(°F): {{ getWeather(location)?.current.temp_f }}
+                </p>
+                <p *ngIf="temp_c">
+                    Temperature(°C): {{ getWeather(location)?.current.temp_c }}
+                </p>
+                <p *ngIf="currentConditions">
+                    Current Conditions: {{ getWeather(location)?.current.condition.text }}
+                </p>
+                <p *ngIf="wind">
+                    Wind: {{ getWeather(location)?.current.wind_dir }} {{ getWeather(location)?.current.wind_mph }}mph
+                </p>
+                <p *ngIf="humidity">
+                    Humidity: {{ getWeather(location)?.current.humidity }}
+                </p>
+                <p *ngIf="precip">
+                    Precipitation: {{ getWeather(location)?.current?.precip_in }}in/{{ getWeather(location)?.current?.precip_mm }}mm
+                </p>
+                <p *ngIf="feelsLike">
+                    Feels Like: {{ getWeather(location)?.current?.feelslike_f }}°F/{{ getWeather(location)?.current?.feelslike_c }}°C
+                </p>
+            </div>
+            <div class="weatherCardOptionsDiv">
+                <a [routerLink]="['/details', location]">Details</a>
+                <a class="removeButton" (click)="locationDeleted.emit(location)">Remove</a>
+            </div>
         </div>
     </div>
 </div>

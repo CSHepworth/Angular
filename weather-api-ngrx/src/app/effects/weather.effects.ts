@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, ofType, createEffect } from "@ngrx/effects";
-import { Observable, of } from "rxjs";
+import { of } from "rxjs";
 import { mergeMap, catchError, map } from "rxjs/operators";
 import { LocationActionTypes } from "../actions/location.actions";
 import { WeatherService } from "../weather.service";

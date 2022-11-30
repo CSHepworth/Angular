@@ -1,1 +1,32 @@
-<p>details works!</p>
+<div class="detailsMainDiv" *ngIf="weatherCall">
+    <h1>
+        {{ weatherCall?.location?.name}}, {{ weatherCall?.location?.region}}
+    </h1>
+    <div class="detailTextDiv">
+        <p>
+            Temperature(°F): {{ weatherCall?.current?.temp_f}}
+        </p>
+        <p>
+            Temperature(°C): {{ weatherCall?.current?.temp_c}}
+        </p>
+        <p>
+            Current Conditions: {{ weatherCall?.current?.condition?.text }}
+        </p>
+        <p>
+            Wind: {{ weatherCall?.current?.wind_dir }} {{ weatherCall?.current?.wind_mph }}mph/{{ weatherCall?.current?.wind_kph }}kph
+        </p>
+        <p>
+            Humidity: {{ weatherCall?.current?.humidity }}
+        </p>
+        <p>
+            Pressure: {{ weatherCall?.current?.pressure_mb }}mb/{{ weatherCall?.current?.pressure_in }}in
+        </p>
+        <p>
+            Precipitation: {{ weatherCall?.current?.precip_in }}in/{{ weatherCall?.current?.precip_mm }}mm
+        </p>
+        <p>
+            Feels Like: {{ weatherCall?.current?.feelslike_f }}°F/{{ weatherCall?.current?.feelslike_c }}°C
+        </p>
+    </div>
+    
+</div>

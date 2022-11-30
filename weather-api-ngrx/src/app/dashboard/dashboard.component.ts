@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AddLocation, RemoveLocation } from '../actions/location.actions';
 import { selectLocationList, selectWeatherList, State } from '../reducers';
@@ -17,12 +17,27 @@ export class DashboardComponent {
 
   public weatherCall: any;
 
-  constructor(private store: Store<State>, public weatherService: WeatherService) {
+  public validationError: string = '';
+
+  constructor(private store: Store<State>, public weatherService: WeatherService, private detectChang: ChangeDetectorRef) {
     store.select(selectLocationList)
       .subscribe(locals => this.locations = locals);
       
     store.select(selectWeatherList)
       .subscribe(calls => this.weatherCalls = calls);
+  }
+
+  locationValidation(location: string) {
+    if (this.locations.includes(location)) {
+      this.validationError = 'Location was already searched'
+    }
+    else if (location == '') {
+      this.validationError = 'Location field was left blank'
+    }
+    else {
+      this.validationError = '';
+      this.addLocation(location);
+    }
   }
 
   addLocation(location: string) {
@@ -40,14 +55,8 @@ export class DashboardComponent {
       .loadWeather(location)
       .subscribe(data => {
         this.weatherCall = data
-        console.log(this.weatherCall);
       });
+      console.log(this.weatherCall);
   }
-
-  reverseCallOrder() {
-    const reversed = new Map(Array.from(this.weatherCalls).reverse());
-    this.weatherCalls = reversed
-  }
-
 
 }

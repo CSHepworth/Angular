@@ -1,4 +1,3 @@
-import { MapType } from '@angular/compiler';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WeatherService } from '../weather.service';
 
@@ -19,17 +18,51 @@ export class WeatherComponent {
 
   public weatherCall: any;
 
+  
+
   constructor(public weatherService: WeatherService) { }
 
   getWeather(location: string) {
     return this.weatherCalls.get(location);
   }
 
-  reverseOrder(weatherCall: any) {
-    const reversedWeatherCalls = new Map(Array.from(this.weatherCalls).reverse());
-    this.weatherCalls = reversedWeatherCalls;
-    console.log(this.weatherCalls);
+  public showFilters: boolean = false;
+  toggleFilters() {
+    this.showFilters = !this.showFilters;
   }
 
+  public temp_f: boolean = true;
+  toggleTemp_F() {
+    this.temp_f = !this.temp_f 
+  }
 
+  public temp_c: boolean = false;
+  toggleTemp_C() {
+    this.temp_c = !this.temp_c
+  }
+
+  public currentConditions: boolean = true;
+  toggleCurrentConditions() {
+    this.currentConditions = !this.currentConditions
+  }
+
+  public wind: boolean = true;
+  toggleWind() {
+    this.wind = !this.wind
+  }
+  
+  public humidity: boolean = true;
+  toggleHumidity() {
+    this.humidity = !this.humidity
+  }
+
+  public precip: boolean = false;
+  togglePrecip() {
+    this.precip = !this.precip
+  }
+
+  public feelsLike: boolean = false;
+  toggleFeelsLike() {
+    this.feelsLike = !this.feelsLike
+  } 
 }

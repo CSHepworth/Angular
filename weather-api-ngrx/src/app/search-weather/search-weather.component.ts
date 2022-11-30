@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
@@ -10,4 +10,6 @@ export class SearchWeatherComponent {
   @Output()
   locationSearch = new EventEmitter<string>();
 
+  @Input()
+  validationError: string;
 }

@@ -12,15 +12,16 @@ import { AppComponent } from './app.component';
 import { SearchWeatherComponent } from './search-weather/search-weather.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WeatherComponent } from './weather/weather.component';
+import { DetailsComponent } from './details/details.component';
 
 //Services
 import { LocationService } from './location.service';
 import { WeatherService } from './weather.service';
 
-//Misc
+//Other
 import { reducers, metaReducers } from './reducers';
 import { WeatherEffects } from './effects/weather.effects';
-import { DetailsComponent } from './details/details.component';
+
 
 
 

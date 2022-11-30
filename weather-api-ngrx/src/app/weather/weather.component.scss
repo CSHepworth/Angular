@@ -1,3 +1,7 @@
+.weatherMainDiv {
+    display: flex;
+}
+
 .weatherCallsDiv {
     display: flex;
     flex-direction: column;
@@ -54,4 +58,23 @@
     justify-content: space-between;
     margin: 10px;
     width: 40%;
+}
+
+.removeButton {
+    cursor: pointer;
+    color: #EB5757;
+    text-decoration: underline;
+}
+
+.filterHead {
+    display: flex;
+    gap: 5px;
+    padding: 0 20px;
+}
+
+.filterDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 20px;
 }

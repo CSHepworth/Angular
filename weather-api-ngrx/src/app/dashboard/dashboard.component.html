@@ -1,6 +1,7 @@
 <div>
-    <app-search-weather (locationSearch)="addLocation($event)"></app-search-weather>
+    <app-search-weather (locationSearch)="locationValidation($event)" [validationError]="validationError"></app-search-weather>
 </div>
 <div>
-    <app-weather [locations]="locations" [weatherCalls]="weatherCalls" (locationDeleted)="removeLocation($event)" (reversedOrder)="reverseCallOrder()"></app-weather>
+    <app-weather [locations]="locations" [weatherCalls]="weatherCalls" (locationDeleted)="removeLocation($event)"></app-weather>
 </div>
+
